@@ -16,21 +16,21 @@ public class Actor {
     private char sexo;
     
     //constructor
-    public Actor(String nombre, int edad, String nacionalidad, char sexo){
-        this.nombre=nombre;
+    public Actor(){
+        
+    }
+    
+    //constructor sobrecargado
+    public Actor(String protagonista, int edad, String nacionalidad, char sexo){
+        this.nombre=protagonista;
         this.edad=edad;
         this.nacionalidad=nacionalidad;
         this.sexo=sexo;
     }
-    
-    //toString
-    public String toSring(){
-        return "Nombre: "+this.nombre+" Edad: "+this.edad+" Nacionalidad: "+this.nacionalidad+" sexo: "+this.sexo;
-    }
 
     //setters
-    public void setNombre(String nombre){
-        this.nombre=nombre;
+    public void setNombre(String protagonista){
+        this.nombre=protagonista;
     }
     
     public void setEdad(int edad){

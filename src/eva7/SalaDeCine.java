@@ -21,12 +21,11 @@ public class SalaDeCine {
     public void agregarPelicula(String Titulo, String Genero, String Director, String Protagonista, int edad, String nacionalidad, char sexo, int Contador){
         this.contador=Contador;
         
-       arrayPeliculas[contador]= new Pelicula();
+       arrayPeliculas[contador]= new Pelicula(Titulo, Genero, Director, Protagonista, edad, nacionalidad, sexo);
        
        arrayPeliculas[contador].setTitulo(Titulo);
        arrayPeliculas[contador].setGenero(Genero);
        arrayPeliculas[contador].setDirector(Director);
-       arrayPeliculas[contador].setProtagonista(Protagonista, edad, nacionalidad, sexo);
     }
     
     public boolean buscarPelicula(String Titulo, int Contador){
@@ -59,7 +58,7 @@ public class SalaDeCine {
         
         for(int i=0;i<contador;i++){
             
-            if(arrayPeliculas[i].actor.getSexo()=='M'){
+            if(arrayPeliculas[i].actor.getSexo()=='F'){
                 this.nMujeres+=1;
             }
            
@@ -68,7 +67,16 @@ public class SalaDeCine {
         return this.nMujeres;
     }
     
-    public int ObtenerActoresJovenes(){
+    public int ObtenerActoresJovenes(String nacionalidad){
+        
+        for(int i=0;i<contador;i++){
+            
+            if(arrayPeliculas[i].actor.getEdad()>=18 && arrayPeliculas[i].actor.getEdad()<=30 && arrayPeliculas[i].actor.getNacionalidad().equals(nacionalidad)){
+                 nActoresJovenes++;
+            }
+           
+        }
+        
         return nActoresJovenes;
     }
     

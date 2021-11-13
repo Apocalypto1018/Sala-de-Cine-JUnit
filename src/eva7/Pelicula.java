@@ -14,8 +14,12 @@ public class Pelicula {
     private String genero;
     private String director;
     
-    public Actor actor;
+    private String auxProtagonista;
+    private int auxEdad;
+    private String auxNacionalidad;
+    private char auxSexo;
     
+    public Actor actor;
     //constructor
     public Pelicula(){
         
@@ -27,10 +31,12 @@ public class Pelicula {
         this.genero=genero;
         this.director=director;
         
-        this.actor.setNombre(protagonista);
-        this.actor.setEdad(edad);
-        this.actor.setNacionalidad(nacionalidad);
-        this.actor.setSexo(sexo);
+        this.auxProtagonista=protagonista;
+        this.auxEdad=edad;
+        this.auxNacionalidad=nacionalidad;
+        this.auxSexo=sexo;
+        
+        this.actor = new Actor(this.auxProtagonista, this.auxEdad, this.auxNacionalidad, this.auxSexo);
     }
     
     //metodo imprimir
@@ -43,8 +49,8 @@ public class Pelicula {
     }
     
     //todos los datos del actor
-    public void getDactosActor(){
-        this.actor.toSring();
+    public void datosActor(){
+        System.out.println("Nombre: "+this.actor.getNombre()+" Edad: "+this.actor.getEdad()+" Nacionalidad: "+this.actor.getNacionalidad()+" sexo: "+this.actor.getSexo());
     }
     
     //setters
@@ -59,14 +65,7 @@ public class Pelicula {
     public void setDirector(String director){
         this.director=director;
     }
-    
-    public void setProtagonista(String protagonista, int edad, String nacionalidad, char sexo){
-        this.actor.setNombre(protagonista);
-        this.actor.setEdad(edad);
-        this.actor.setNacionalidad(nacionalidad);
-        this.actor.setSexo(sexo);
-    }
-    
+   
     //getters
     public String getTitulo(){
         return this.titulo;
